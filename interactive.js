@@ -54,3 +54,25 @@ export const selectDb = async () => {
   console.log(`Db is ${selectedDb}.`);
   return selectedDb;
 };
+
+// Function to show docker message
+export const selectDocker = async () => {
+  const { selectedDocker } = await inquirer.prompt([
+    {
+      type: 'list',
+      name: 'selectedDocker',
+      message: 'Do you want Docker support:',
+      choices: ['Yes','No']
+    }
+  ]);
+  if (`${selectedDocker}` == "Yes")
+  {
+    console.log("Dockerfile and Compose is generated");
+  }
+  else if (`${selectedDocker}` == "No")
+  {
+    console.log("Dockerfile and Compose is not generated");
+  }
+
+  return selectedDocker;
+};

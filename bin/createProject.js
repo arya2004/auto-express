@@ -5,6 +5,7 @@ import {
   selectDb,
   selectStructure,
   selectRenderEngine,
+  selectDocker,
 } from "../interactive.js";
 import { createProject } from "../lib/setup.js";
 
@@ -18,11 +19,12 @@ const args = process.argv.slice(2); // Exclude 'node' and script name
     const structure = await selectStructure();
     const database = await selectDb();
     const renderEngine = await selectRenderEngine();
-    createProject(projectName, structure, database, renderEngine, isFlat);
+    const dockerSupport = await selectDocker()
+    createProject(projectName, structure, database, renderEngine, dockerSupport, isFlat);
   }
   if (args[0] === "new") {
     const folderName = args[1];
-    createProject(folderName, "API", "MongoDb", isFlat);
+    createProject(folderName, "API", "MongoDB", "EJS", "No", isFlat);
 
   }
 })();

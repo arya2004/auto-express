@@ -10,18 +10,20 @@
     "type": "git",
     "url": "git+https://github.com/arya2004/AutoExpress.js.git"
   },
-  "keywords": [ 
-  "javascript",
-  "npm",
-  "node",
-  "express"],
+  "keywords": [
+    "javascript",
+    "npm",
+    "node",
+    "express"
+  ],
   "author": "arya2004",
   "license": "MIT",
   "bin": {
     "auto": "./bin/createProject.js"
   },
   "dependencies": {
-    "inquirer": "^9.2.12"
+    "inquirer": "^9.2.12",
+    "js-yaml": "^4.1.0"
   },
   "type": "module"
 }
