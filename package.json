@@ -1,15 +1,14 @@
 {
   "name": "auto-express",
-  "version": "1.9.0",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "version": "1.0.0",
+  "description": "A generator for Express.js projects with database connections, caching, and MVC/API structures.",
+  "main": "./bin/cli.js",
   "scripts": {
-    "build": "tsup"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/arya2004/autoexpress.git"
+  
+  "bin": {
+    "auto": "./bin/cli.js"
   },
   "keywords": [
     "express",
@@ -20,9 +19,9 @@
   ],
   "author": "arya2004",
   "license": "MIT",
-  "description": "CLI to generate Express.js projects",
-  "devDependencies": {
-    "tsup": "^8.3.5",
-    "typescript": "^5.6.3"
-  }
+  "dependencies": {
+    "commander": "^12.1.0",
+    "inquirer": "^12.1.0"
+  },
+  "type": "module"
 }
