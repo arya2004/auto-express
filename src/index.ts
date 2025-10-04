@@ -2,6 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { Command } from 'commander';
 import { generateGitignoreContent } from './utils';
+import { initProject } from './template';
 
 export function sayHello() {
   console.log('HEllo');
@@ -25,7 +26,10 @@ function createProject(projectName: string) {
     process.exit(1);
   }
   try {
-    fs.writeFileSync(path.join(projectPath, '.gitignore'), generateGitignoreContent());
+    fs.writeFileSync(
+      path.join(projectPath, '.gitignore'),
+      generateGitignoreContent(),
+    );
     console.log('✅ .gitignore file created.');
   } catch (error) {
     console.error('❌ Error creating .gitignore file:', error);
@@ -50,11 +54,14 @@ program
 
 program
   .command('init')
-  .description('Start an interactive CLI to create a new project (coming soon)')
-  .action(() => {
-    console.log('Interactive init is not implemented yet. Use:');
-    console.log('  auto-express <project-name>');
-    console.log('  auto-express new <project-name>');
+  .option(
+    '-t, --template <template>',
+    "Specify a template (e.g., 'basic', 'typescript')",
+  )
+  .argument('[project-name]', 'Name of the project to create')
+  .description('Initialize a new project with a template')
+  .action((projectName, options) => {
+    initProject(options.template, projectName);
   });
 
 const rawArgs = process.argv.slice(2);
@@ -62,7 +69,7 @@ if (rawArgs.includes('--h')) {
   console.log(`
 Usage: auto-express <project-name>
        auto-express new <project-name>
-       auto-express init
+       auto-express init --template <template> [project-name]
 
 Options:
   -h, --help          Display this help message.

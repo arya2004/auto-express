@@ -29,6 +29,7 @@ We will respond to your report within **48 hours** to acknowledge receipt. We ai
 ### Responsible Disclosure
 
 To ensure the safety of all users, we ask that you:
+
 - Refrain from publicly disclosing the vulnerability until we have addressed it.
 - Test the vulnerability only on your own systems or environments.
 

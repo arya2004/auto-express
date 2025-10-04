@@ -1,9 +1,9 @@
 ---
 name: Pull Request 207
 about: Submit a Pull Request to contribute to the project
-title: "[PR] --flat option added"
-labels: ""
-assignees: ""
+title: '[PR] --flat option added'
+labels: ''
+assignees: ''
 ---
 
 **What does this PR do?**
